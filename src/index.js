@@ -1,14 +1,19 @@
 
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+import React from "react";
 
-const root = document.getElementById('root');
-const app = createRoot(root);
-app.render(
-    <BrowserRouter>
+import { createRoot } from 'react-dom/client';
+const root = createRoot(document.getElementById('root'))
+import App from './App';
+
+root.render(
+    <React.StrictMode>
         <App />
-    </BrowserRouter>
+    </React.StrictMode>
 );
+
+
+
+
+
 
 

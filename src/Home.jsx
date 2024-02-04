@@ -1,7 +1,19 @@
-
+import React from 'react';
 import "./style.css"
+import dataQuestions from './data.json';
+// import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const App = () => {
+console.log(dataQuestions[1].answer)
+
+const Home = () => {
+
+    // const navigate = useNavigate();
+    // const handleButtonClick = () => {
+    //     console.log('Button clicked');
+    //     navigate("/Thank");
+    // };
+
     return (
         <div id="first-child">
             <header>
@@ -17,7 +29,10 @@ const App = () => {
                 </div>
 
                 <div className="button-container">
-                    <button id="ready">Ready?</button>
+                    <Link to="/Thank">
+                        <button id="ready" >Ready?</button>
+                        {/* <button id="ready" onClick={handleButtonClick}>Ready?</button> */}
+                    </Link>
                 </div>
             </main>
 
@@ -30,4 +45,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default Home;
