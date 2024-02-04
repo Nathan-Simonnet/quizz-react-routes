@@ -1,38 +1,43 @@
 :root {
-
     --background-color: #2F3542;
 
-    --title-container: #E0B143;
+    --title-container: #FEA601;
     --texts-color: #DFE4EA;
 
     --button-color: #2F3542;
     --button-block-color: #DFE4EA;
-    --buttons-block-hover-container: #E0B143;
-
-
-
+    --buttons-block-hover-container: #dea726;
 }
 
 * {
-    user-select: none;
     padding: 0;
     margin: 0;
+    user-select: none;
     box-sizing: border-box;
-    border: 1px solid red;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-
 body {
-    border: 4px solid orange;
-    height: 100vh;
-    overflow: hidden;
+
     background: var(--background-color);
     text-align: center;
+    height: 100vh;
+    overflow: hidden;
+}
 
+body,
+#root,
+#first-child {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#root,
+#first-child {
+    height: 100%;
+    width: 100%;
 }
 
 header,
@@ -43,7 +48,7 @@ footer {
 }
 
 header {
-    border: 1px solid blue;
+    margin-top: auto;
 
     & .title-container {
         display: flex;
@@ -51,11 +56,12 @@ header {
         align-items: center;
 
         & h1 {
-            color: #DFE0E2;
+            color: var(--texts-color);
             font-size: 64px;
+            font-family: serif;
 
             & span {
-                color: #E0B143;
+                color: var(--title-container)
             }
         }
 
@@ -65,6 +71,7 @@ header {
             width: 100px;
 
             & img {
+                color: white;
                 height: 100%;
                 width: 100%;
             }
@@ -72,9 +79,7 @@ header {
     }
 }
 
-
 main {
-    border: 1px solid purple;
 
     & .presentation-container {
 
@@ -86,15 +91,15 @@ main {
 
     & .button-container {
         & button {
-            height: 100px;
-            width: 400px;
+            height: 70px;
+            width: 300px;
 
             background: var(--button-block-color);
             border-radius: 8px;
             border: 2px solid var(--button-block-color);
             color: var(--button-color);
             font-weight: bold;
-            font-size: 32px;
+            font-size: 28px;
             cursor: pointer;
             transition: 0.1s;
         }
@@ -110,11 +115,10 @@ main {
     }
 }
 
-
 footer {
-
+    margin-bottom: 0;
     margin-top: auto;
-    height: 40px;
+    height: auto;
     width: 100%;
 
     color: var(--title-container);
@@ -122,13 +126,26 @@ footer {
 
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
 
     & .questions-counter-container {
-        margin-right: 12px;
+        padding-right: 24px;
+        padding-bottom: 24px;
     }
 }
 
-.change {
-    background: rgba(0, 0, 255, 0.138);
+@media screen and (max-width: 670px) {
+
+    #ready {
+        height: 54px;
+        width: 200px;
+        font-size: 24px;
+    }
+
+    header *,
+    main * :not(button),
+    footer * {
+        transform: scale(0.9);
+    }
+
 }
