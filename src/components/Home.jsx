@@ -1,10 +1,11 @@
 import React from 'react';
-import "./style.css"
-import dataQuestions from './data.json';
-// import { useNavigate } from "react-router-dom";
+import "../styles/Home.css"
+import logo from "../assets/images/question-mark-title.png"
+
 import { Link } from "react-router-dom";
 
-console.log(dataQuestions[1].answer)
+// TOUT le code en commentaire représente une autre possibilité (à étudier)
+// import { useNavigate } from "react-router-dom";
 
 const Home = () => {
 
@@ -15,11 +16,11 @@ const Home = () => {
     // };
 
     return (
-        <div id="first-child">
+        <div id="first-child" className='home'>
             <header>
                 <div className="title-container">
                     <h1><span>Q</span>uiz</h1>
-                    <div className="question-mark-container"><img src="../assets/images/question-mark-title.png" alt="" /></div>
+                    <div className="question-mark-container"><img src={logo} alt="" /></div>
                 </div>
             </header>
 
