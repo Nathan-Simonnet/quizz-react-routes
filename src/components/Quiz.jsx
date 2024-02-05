@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 
 import logo from "../assets/images/question-mark-title.png"
 import dataQuestions from '../assets/data/data.json';
