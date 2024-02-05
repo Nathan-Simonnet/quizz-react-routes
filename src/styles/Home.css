@@ -53,6 +53,7 @@ header {
 }
 
 main {
+    width: 824px;
 
     & .presentation-container {
 
@@ -63,6 +64,7 @@ main {
     }
 
     & .button-container {
+
         & button {
             height: 70px;
             width: 300px;
@@ -107,7 +109,12 @@ footer {
     }
 }
 
-@media screen and (max-width: 670px) {
+
+@media screen and (max-width: 800px) {
+
+    main {
+        width: 400px;
+    }
 
     #home {
 
@@ -123,6 +130,5 @@ footer {
             font-size: 20px;
         }
     }
-}
 
-/* } */
+}

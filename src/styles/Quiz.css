@@ -1,7 +1,6 @@
-/* @import "./Home.css" */
+@import "./Home.css";
 
 @keyframes buttonEmergence {}
-
 
 .buttons-container {
     display: grid;
@@ -19,6 +18,14 @@
             width: 360px;
         }
     }
+}
+
+.good-response {
+    background: rgb(49, 138, 49) !important;
+}
+
+.bad-response {
+    background: rgb(155, 59, 49) !important;
 }
 
 @media screen and (max-width: 800px) {
