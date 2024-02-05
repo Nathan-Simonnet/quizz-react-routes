@@ -1,0 +1,58 @@
+/* @import "./Home.css" */
+
+@keyframes buttonEmergence {}
+
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+
+
+    & .button-container {
+        margin: 24px;
+
+        & button {
+            font-size: 22px;
+            height: 100px;
+            width: 360px;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    #quiz {
+
+        & header,
+        & main,
+        & footer {
+            margin: 0;
+        }
+
+        & header *,
+        & main * :not(button),
+        & footer * {
+            transform: scale(0.9);
+        }
+
+        & .buttons-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            & .button-container {
+                margin: 0;
+
+                & button {
+                    height: 60px;
+                    width: 220px;
+
+                }
+            }
+        }
+    }
+
+}

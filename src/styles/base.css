@@ -21,7 +21,7 @@ body {
     background: var(--background-color);
     text-align: center;
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 body,

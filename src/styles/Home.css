@@ -1,125 +1,128 @@
 @import './base.css';
 
-.home {
+.first-child {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.home {
+.first-child {
     height: 100%;
     width: 100%;
 }
 
-.home {
+/* .first-child { */
+header,
+.presentation-container,
+.button-container,
+footer {
+    margin: 24px;
+}
 
-    & header,
-    & .presentation-container,
-    & .button-container,
-    & footer {
-        margin: 24px;
-    }
+header {
+    margin-top: auto;
 
-    & header {
-        margin-top: auto;
-
-        & .title-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            & h1 {
-                color: var(--texts-color);
-                font-size: 64px;
-                font-family: serif;
-
-                & span {
-                    color: var(--title-container)
-                }
-            }
-
-            & .question-mark-container {
-
-                height: 100px;
-                width: 100px;
-
-                & img {
-                    color: white;
-                    height: 100%;
-                    width: 100%;
-                }
-            }
-        }
-    }
-
-    & main {
-
-        & .presentation-container {
-
-            & p {
-                color: #DFE0E2;
-                font-size: 24px;
-            }
-        }
-
-        & .button-container {
-            & button {
-                height: 70px;
-                width: 300px;
-
-                background: var(--button-block-color);
-                border-radius: 8px;
-                border: 2px solid var(--button-block-color);
-                color: var(--button-color);
-                font-weight: bold;
-                font-size: 28px;
-                cursor: pointer;
-                transition: 0.1s;
-            }
-
-            & button:hover {
-                background: var(--buttons-block-hover-container);
-                border: 2px solid var(--texts-color);
-            }
-
-            & button:active {
-                transform: scale(0.9);
-            }
-        }
-    }
-
-    & footer {
-        margin-bottom: 0;
-        margin-top: auto;
-        height: auto;
-        width: 100%;
-
-        color: var(--title-container);
-        font-weight: bold;
-
+    & .title-container {
         display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
+        justify-content: center;
+        align-items: center;
 
-        & .questions-counter-container {
-            padding-right: 24px;
-            padding-bottom: 24px;
+        & h1 {
+            color: var(--texts-color);
+            font-size: 64px;
+            font-family: serif;
+
+            & span {
+                color: var(--title-container)
+            }
+        }
+
+        & .question-mark-container {
+
+            height: 100px;
+            width: 100px;
+
+            & img {
+                color: white;
+                height: 100%;
+                width: 100%;
+            }
         }
     }
+}
 
-    @media screen and (max-width: 670px) {
+main {
 
-        #ready {
-            height: 54px;
-            width: 200px;
+    & .presentation-container {
+
+        & p {
+            color: #DFE0E2;
             font-size: 24px;
         }
+    }
 
-        header *,
-        main * :not(button),
-        footer * {
+    & .button-container {
+        & button {
+            height: 70px;
+            width: 300px;
+
+            background: var(--button-block-color);
+            border-radius: 8px;
+            border: 2px solid var(--button-block-color);
+            color: var(--button-color);
+            font-weight: bold;
+            font-size: 28px;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        & button:hover {
+            border: 2px solid var(--texts-color);
+            background: var(--buttons-block-hover-container);
+        }
+
+        & button:active {
             transform: scale(0.9);
         }
     }
 }
+
+footer {
+    margin-bottom: 0;
+    margin-top: auto;
+    height: auto;
+    width: 100%;
+
+    color: var(--title-container);
+    font-weight: bold;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    & .questions-counter-container {
+        padding-right: 24px;
+        padding-bottom: 24px;
+    }
+}
+
+@media screen and (max-width: 670px) {
+
+    #home {
+
+        & header *,
+        & main * :not(button),
+        & footer * {
+            transform: scale(0.9);
+        }
+
+        & #ready {
+            height: 54px;
+            width: 200px;
+            font-size: 20px;
+        }
+    }
+}
+
+/* } */
