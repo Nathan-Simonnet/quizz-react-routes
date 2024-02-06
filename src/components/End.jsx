@@ -1,13 +1,13 @@
-
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { useScore } from '../ScoreContext';
 
 const End = () => {
 
+    const { score } = useScore();
 
     return (
         <div>
-            <h1>Score: </h1>
+            <h1>Score: {score}</h1>
         </div>
     );
 };

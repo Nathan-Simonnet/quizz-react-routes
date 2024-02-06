@@ -1,31 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { useParams } from 'react-router-dom';
 
 import logo from "../assets/images/question-mark-title.png"
 import dataQuestions from '../assets/data/data.json';
 import "../styles/Quiz.css"
-//** */ let totalPoints = 0;
+import { useScore } from '../ScoreContext';
+//** let score = 0;
 
 const Quiz = () => {
+
     // At then end of the questions, we go to /end with this
     const navigate = useNavigate();
     const [counter, setCounter] = useState(0);
+
     //**more react way, but it worked anyway, track the good answer
-    const [totalPoints, setTotalPoints] = useState(0);
+    // !! Local méthod, classic
+    //!! const [score, setScore] = useState(0);
+    const { score, setScore } = useScore();
+
     //* Same as let "playOnce" = true ect
     const [initialRender, setInitialRender] = useState(false);
 
     useEffect(() => {
-        // if answer = choice, add correct class to color green or red
+        // if answer = choice, add correct class to color green or red, and one point is added to the score
         const handleButtonClick = (event) => {
             const clickedButton = event.target.id;
             const answer = dataQuestions[counter].answer;
 
             if (clickedButton == answer) {
                 document.getElementById(clickedButton).classList.add('good-response');
-                //**  totalPoints++;
-                setTotalPoints((prevPoints) => prevPoints + 1);
+                //**  score++;
+                setScore((prevPoints) => prevPoints + 1);
             } else {
                 document.getElementById(clickedButton).classList.add('bad-response');
                 document.getElementById(answer).classList.add('good-response');
@@ -34,14 +39,14 @@ const Quiz = () => {
             // /prevent the user from clicking during the transition
             document.getElementById('quiz').style.pointerEvents = "none"
 
-            // in x seconde, change the counter, and so the render
+            // in x seconde, change the questions counter, and so the render
             setTimeout(() => {
 
                 if (counter < dataQuestions.length - 1) {
                     setCounter(prevCounter => prevCounter + 1);
                 } else {
-                    //** */ totalPoints = 0;
-                    setTotalPoints(0)
+                    //** */ score = 0;
+                    // setScore(0)
                     navigate("/End");
                 }
                 document.getElementById('quiz').style.pointerEvents = "auto";
@@ -63,17 +68,18 @@ const Quiz = () => {
                 btn.removeEventListener('click', handleButtonClick);
             });
         };
-    }, [counter, navigate, totalPoints]);
+    }, [counter, navigate, score]);
 
     // Track the total point, i had to encapsulate it in his corner, alone... without friend... Otherwise it was launched before initialRender, obviously, the names... 
     useEffect(() => {
-        //* playOnce ect
+        //* playOnce ect, ensure That each new game, the score reset
         if (initialRender) {
-            console.log('Total Points:', totalPoints);
+            console.log('Total Points:', score);
         } else {
             setInitialRender(true);
+            setScore(0)
         }
-    }, [totalPoints, initialRender]);
+    }, [score, initialRender]);
 
     return (
 
