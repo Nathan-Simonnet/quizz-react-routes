@@ -36,3 +36,27 @@ body,
     height: 100%;
     width: 100%;
 }
+
+
+button {
+    height: 70px;
+    width: 300px;
+
+    background: var(--button-block-color);
+    border-radius: 8px;
+    border: 2px solid var(--button-block-color);
+    color: var(--button-color);
+    font-weight: bold;
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+button:hover {
+    border: 2px solid var(--texts-color);
+    background: var(--buttons-block-hover-container);
+}
+
+button:active {
+    transform: scale(0.9);
+}

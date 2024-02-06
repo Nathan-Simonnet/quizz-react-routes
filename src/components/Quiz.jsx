@@ -9,13 +9,11 @@ import { useScore } from '../ScoreContext';
 
 const Quiz = () => {
 
-    // At then end of the questions, we go to /end with this
+    // At then end of the questions, we will navigate to /End
     const navigate = useNavigate();
     const [counter, setCounter] = useState(0);
 
-    //**more react way, but it worked anyway, track the good answer
-    // !! Local méthod, classic
-    //!! const [score, setScore] = useState(0);
+    //Good answer counter;
     const { score, setScore } = useScore();
 
     //* Same as let "playOnce" = true ect
@@ -36,10 +34,10 @@ const Quiz = () => {
                 document.getElementById(answer).classList.add('good-response');
             }
 
-            // /prevent the user from clicking during the transition
+            // /prevent the user from clicking during the transition coming just...
             document.getElementById('quiz').style.pointerEvents = "none"
 
-            // in x seconde, change the questions counter, and so the render
+            //...here: In 1000 seconde, change the questions counter, and so the render
             setTimeout(() => {
 
                 if (counter < dataQuestions.length - 1) {
@@ -52,7 +50,7 @@ const Quiz = () => {
                 document.getElementById('quiz').style.pointerEvents = "auto";
                 document.getElementById(clickedButton).classList.remove('bad-response');
                 document.getElementById(answer).classList.remove('good-response');
-            }, 10);
+            }, 1000);
         };
 
         // The event for calling handleButtonClick when buttons are clicked
@@ -87,7 +85,7 @@ const Quiz = () => {
             <header>
                 <div className="title-container" >
                     <h1><span>Q</span>uiz</h1>
-                    <div className="question-mark-container"><img src={logo} alt="" /></div>
+                    <div className="question-mark-container"><img src={logo} alt="question mark logo" /></div>
                 </div>
             </header>
 
@@ -99,20 +97,15 @@ const Quiz = () => {
                 <div className='buttons-container'>
                     <div className="button-container">
                         <button id={dataQuestions[counter].choices[0]} >{dataQuestions[counter].choices[0]}</button>
-                        {/* Another method too, not for this one... oooor perhaps... another test héhé */}
-                        {/* <button id="ready" onClick={handleButtonClick}>Ready?</button> */}
                     </div>
                     <div className="button-container">
                         <button id={dataQuestions[counter].choices[1]}>{dataQuestions[counter].choices[1]}</button>
-                        {/* <button id="ready" onClick={handleButtonClick}>Ready?</button> */}
                     </div>
                     <div className="button-container">
                         <button id={dataQuestions[counter].choices[2]} >{dataQuestions[counter].choices[2]}</button>
-                        {/* <button id="ready" onClick={handleButtonClick}>Ready?</button> */}
                     </div>
                     <div className="button-container">
                         <button id={dataQuestions[counter].choices[3]} >{dataQuestions[counter].choices[3]}</button>
-                        {/* <button id="ready" onClick={handleButtonClick}>Ready?</button> */}
                     </div>
                 </div>
             </main>

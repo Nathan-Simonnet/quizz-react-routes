@@ -1,0 +1,35 @@
+#end-page {
+
+
+    & h1 {
+
+        margin: 24px;
+        font-size: 60px;
+        color: var(--texts-color);
+
+        & span {
+            color: var(--title-container);
+        }
+
+        & span#first-letter {
+            font-size: 75px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+
+    #end-page *:not(button) {
+        transform: scale(0.8);
+
+    }
+
+    #end-page button {
+        height: 60px;
+        width: 200px;
+
+    }
+
+}
